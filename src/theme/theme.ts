@@ -27,8 +27,9 @@ const styles = {
 const components = {
     Button: {
         baseStyle: {
-            borderRadius: "sm",
-            fontWeight: "500",
+            borderRadius: "0",
+            fontWeight: "400",
+            letterSpacing: "1px",
         },
         variants: {
             primary: {
@@ -40,7 +41,7 @@ const components = {
                     transform: "translateY(-2px)",
                     boxShadow: "md",
                 },
-                transition: "all 0.2s ease",
+                transition: "all 0.3s ease",
             },
             secondary: {
                 bg: "transparent",
@@ -51,7 +52,7 @@ const components = {
                     bg: "rgba(251, 220, 106, 0.1)",
                     transform: "translateY(-2px)",
                 },
-                transition: "all 0.2s ease",
+                transition: "all 0.3s ease",
             },
             accent: {
                 bg: "kodo.red",
@@ -62,14 +63,15 @@ const components = {
                     transform: "translateY(-2px)",
                     boxShadow: "md",
                 },
-                transition: "all 0.2s ease",
+                transition: "all 0.3s ease",
             },
         },
     },
     Heading: {
         baseStyle: {
             color: "white",
-            fontWeight: "600",
+            fontWeight: "500",
+            letterSpacing: "wider",
         },
     },
     Link: {
@@ -80,6 +82,36 @@ const components = {
                 color: "kodo.gold",
                 opacity: 0.8,
             },
+        },
+    },
+    Input: {
+        baseStyle: {
+            field: {
+                borderRadius: "0",
+                _focus: {
+                    boxShadow: "0 0 0 1px rgba(251, 220, 106, 0.6)",
+                },
+            },
+        },
+        variants: {
+            outline: {
+                field: {
+                    border: "1px solid",
+                    borderColor: "rgba(251, 220, 106, 0.2)",
+                    _hover: {
+                        borderColor: "rgba(251, 220, 106, 0.4)",
+                    },
+                    _focus: {
+                        borderColor: "kodo.gold",
+                        boxShadow: "0 0 0 1px rgba(251, 220, 106, 0.6)",
+                    },
+                },
+            },
+        },
+    },
+    Icon: {
+        baseStyle: {
+            transition: "all 0.3s ease",
         },
     },
 };
