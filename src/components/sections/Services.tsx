@@ -7,9 +7,28 @@ import {
     Text,
     Stack,
     Flex,
+    keyframes,
 } from "@chakra-ui/react";
 import { FaReact, FaServer, FaMobileAlt, FaMagic } from "react-icons/fa";
 import { ReactElement } from "react";
+
+// Animación para los elementos decorativos japoneses
+const fadeIn = keyframes`
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 0.4; transform: translateY(0); }
+`;
+
+// Animación de "tinta que se expande" para efectos de líneas
+const inkDraw = keyframes`
+    0% { width: 0; opacity: 0; }
+    100% { width: 100%; opacity: 0.3; }
+`;
+
+// Línea decorativa de transición entre secciones
+const fadeInGradually = keyframes`
+    0% { opacity: 0; }
+    100% { opacity: 0.3; }
+`;
 
 interface FeatureProps {
     title: string;
@@ -32,6 +51,8 @@ const Feature = ({ title, text, icon }: FeatureProps) => {
                 boxShadow: "lg",
                 borderColor: "kodo.red",
             }}
+            position="relative"
+            zIndex={1}
         >
             <Flex
                 w={16}
@@ -54,13 +75,332 @@ const Feature = ({ title, text, icon }: FeatureProps) => {
 
 const Services = () => {
     return (
-        <Box id="services" py={20} bg="kodo.black">
-            <Container maxW="container.xl">
+        <Box
+            id="services"
+            py={20}
+            position="relative"
+            backgroundImage="linear-gradient(180deg, rgba(9, 10, 14, 0.95) 0%, rgba(9, 10, 14, 1) 100%)"
+            backgroundPosition="center"
+            backgroundRepeat="no-repeat"
+            backgroundSize="cover"
+            overflow="hidden"
+            borderTop="0"
+            mt={-1} // Elimina cualquier espacio entre secciones
+            _before={{
+                content: '""',
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: "radial-gradient(circle at 20% 30%, rgba(251, 220, 106, 0.05) 0%, transparent 70%)",
+                zIndex: 0,
+            }}
+            // Mismo patrón de fondo sutil que el Hero
+            _after={{
+                content: '""',
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundImage: "url('https://www.transparenttextures.com/patterns/rice-paper.png')",
+                backgroundRepeat: "repeat",
+                opacity: 0.1,
+                zIndex: 0,
+                pointerEvents: "none",
+            }}
+        >
+            {/* Elemento decorativo: kanji abstracto (círculos y líneas que sugieren un kanji) */}
+            <Box
+                position="absolute"
+                top="80px"
+                right="60px"
+                width="80px"
+                height="120px"
+                zIndex={0}
+                opacity={0}
+                animation={`${fadeIn} 1.5s ease-out 0.5s forwards`}
+                display={{ base: "none", lg: "block" }}
+            >
+                <Box
+                    position="absolute"
+                    top="0"
+                    left="40px"
+                    width="2px"
+                    height="120px"
+                    bg="kodo.red"
+                    opacity={0.3}
+                />
+                <Box
+                    position="absolute"
+                    top="30px"
+                    left="0"
+                    width="80px"
+                    height="2px"
+                    bg="kodo.red"
+                    opacity={0.3}
+                />
+                <Box
+                    position="absolute"
+                    top="60px"
+                    left="0"
+                    width="40px"
+                    height="2px"
+                    bg="kodo.red"
+                    opacity={0.3}
+                />
+                <Box
+                    position="absolute"
+                    top="15px"
+                    left="15px"
+                    width="10px"
+                    height="10px"
+                    borderRadius="full"
+                    bg="kodo.red"
+                    opacity={0.4}
+                />
+            </Box>
+
+            {/* Elemento decorativo: onda japonesa simplificada */}
+            <Box
+                position="absolute"
+                bottom="40px"
+                left="40px"
+                width="100px"
+                height="60px"
+                zIndex={0}
+                opacity={0}
+                animation={`${fadeIn} 1.5s ease-out 0.8s forwards`}
+                display={{ base: "none", lg: "block" }}
+            >
+                {/* Primera onda */}
+                <Box
+                    position="absolute"
+                    bottom="0"
+                    left="0"
+                    width="20px"
+                    height="20px"
+                    borderRadius="0 0 10px 0"
+                    border="0"
+                    borderRight="2px solid"
+                    borderBottom="2px solid"
+                    borderColor="kodo.gold"
+                    opacity={0.3}
+                />
+                <Box
+                    position="absolute"
+                    bottom="0"
+                    left="20px"
+                    width="20px"
+                    height="20px"
+                    borderRadius="0 0 0 10px"
+                    border="0"
+                    borderLeft="2px solid"
+                    borderBottom="2px solid"
+                    borderColor="kodo.gold"
+                    opacity={0.3}
+                />
+                {/* Segunda onda */}
+                <Box
+                    position="absolute"
+                    bottom="0"
+                    left="50px"
+                    width="20px"
+                    height="20px"
+                    borderRadius="0 0 10px 0"
+                    border="0"
+                    borderRight="2px solid"
+                    borderBottom="2px solid"
+                    borderColor="kodo.gold"
+                    opacity={0.3}
+                />
+                <Box
+                    position="absolute"
+                    bottom="0"
+                    left="70px"
+                    width="20px"
+                    height="20px"
+                    borderRadius="0 0 0 10px"
+                    border="0"
+                    borderLeft="2px solid"
+                    borderBottom="2px solid"
+                    borderColor="kodo.gold"
+                    opacity={0.3}
+                />
+                {/* Tercera onda (un poco más arriba) */}
+                <Box
+                    position="absolute"
+                    bottom="30px"
+                    left="10px"
+                    width="20px"
+                    height="20px"
+                    borderRadius="0 0 10px 0"
+                    border="0"
+                    borderRight="2px solid"
+                    borderBottom="2px solid"
+                    borderColor="kodo.gold"
+                    opacity={0.2}
+                />
+                <Box
+                    position="absolute"
+                    bottom="30px"
+                    left="30px"
+                    width="20px"
+                    height="20px"
+                    borderRadius="0 0 0 10px"
+                    border="0"
+                    borderLeft="2px solid"
+                    borderBottom="2px solid"
+                    borderColor="kodo.gold"
+                    opacity={0.2}
+                />
+            </Box>
+
+            {/* Elemento decorativo: marcos minimalistas (marco cuadrado con esquinas abiertas) */}
+            <Box
+                position="absolute"
+                top="50%"
+                right="5%"
+                width="150px"
+                height="150px"
+                zIndex={0}
+                opacity={0}
+                animation={`${fadeIn} 1.5s ease-out 1s forwards`}
+                display={{ base: "none", xl: "block" }}
+            >
+                {/* Esquina superior izquierda */}
+                <Box
+                    position="absolute"
+                    top="0"
+                    left="0"
+                    width="30px"
+                    height="2px"
+                    bg="kodo.gold"
+                    opacity={0.2}
+                />
+                <Box
+                    position="absolute"
+                    top="0"
+                    left="0"
+                    width="2px"
+                    height="30px"
+                    bg="kodo.gold"
+                    opacity={0.2}
+                />
+                {/* Esquina superior derecha */}
+                <Box
+                    position="absolute"
+                    top="0"
+                    right="0"
+                    width="30px"
+                    height="2px"
+                    bg="kodo.gold"
+                    opacity={0.2}
+                />
+                <Box
+                    position="absolute"
+                    top="0"
+                    right="0"
+                    width="2px"
+                    height="30px"
+                    bg="kodo.gold"
+                    opacity={0.2}
+                />
+                {/* Esquina inferior izquierda */}
+                <Box
+                    position="absolute"
+                    bottom="0"
+                    left="0"
+                    width="30px"
+                    height="2px"
+                    bg="kodo.gold"
+                    opacity={0.2}
+                />
+                <Box
+                    position="absolute"
+                    bottom="0"
+                    left="0"
+                    width="2px"
+                    height="30px"
+                    bg="kodo.gold"
+                    opacity={0.2}
+                />
+                {/* Esquina inferior derecha */}
+                <Box
+                    position="absolute"
+                    bottom="0"
+                    right="0"
+                    width="30px"
+                    height="2px"
+                    bg="kodo.gold"
+                    opacity={0.2}
+                />
+                <Box
+                    position="absolute"
+                    bottom="0"
+                    right="0"
+                    width="2px"
+                    height="30px"
+                    bg="kodo.gold"
+                    opacity={0.2}
+                />
+            </Box>
+
+            {/* Elemento decorativo de transición en la parte superior */}
+            <Box
+                position="absolute"
+                top="0"
+                left="0"
+                right="0"
+                height="3px"
+                zIndex={1}
+                opacity={0}
+                animation={`${fadeInGradually} 1.5s ease-out 0.3s forwards`}
+            >
+                <Box
+                    position="absolute"
+                    top="0"
+                    left="30%"
+                    width="40%"
+                    height="1px"
+                    bg="kodo.gold"
+                    opacity={0.2}
+                />
+                <Box
+                    position="absolute"
+                    top="2px"
+                    left="25%"
+                    width="50%"
+                    height="1px"
+                    bg="kodo.gold"
+                    opacity={0.1}
+                />
+            </Box>
+
+            <Container maxW="container.xl" position="relative" zIndex={1}>
                 <Stack spacing={4} as={Container} maxW="3xl" textAlign="center" mb={16}>
-                    <Heading fontSize="3xl" color="white">
+                    <Heading
+                        fontSize="3xl"
+                        color="white"
+                        position="relative"
+                        display="inline-block"
+                        mx="auto"
+                    >
                         Nuestros <Text as="span" color="kodo.gold">Servicios</Text>
+                        {/* Línea decorativa debajo del título */}
+                        <Box
+                            position="absolute"
+                            bottom="-10px"
+                            left="25%"
+                            width="50%"
+                            height="2px"
+                            bg="kodo.red"
+                            opacity={0}
+                            animation={`${inkDraw} 1.2s ease-out 0.5s forwards`}
+                        />
                     </Heading>
-                    <Text color="gray.400" fontSize="lg">
+                    <Text color="gray.400" fontSize="lg" mt={6}>
                         Soluciones digitales adaptadas a tus necesidades con un enfoque centrado
                         en la calidad, la eficiencia y el diseño.
                     </Text>

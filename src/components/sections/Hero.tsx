@@ -61,7 +61,7 @@ const Hero = () => {
                 background: "radial-gradient(circle at 20% 30%, rgba(251, 220, 106, 0.05) 0%, transparent 70%)",
                 zIndex: 0,
             }}
-            // Añadir patrón de fondo sutil con opacidad baja
+            // patrón de fondo sutil con opacidad baja
             _after={{
                 content: '""',
                 position: "absolute",
@@ -246,7 +246,7 @@ const Hero = () => {
                         >
                             <ScrollLink to="contact" smooth={true} duration={500} offset={-70}>
                                 <Button
-                                    rounded="none" // Bordes rectos, estilo japonés minimalista
+                                    rounded="none"
                                     size="lg"
                                     fontWeight="normal"
                                     px={6}
@@ -267,7 +267,7 @@ const Hero = () => {
                             </ScrollLink>
                             <ScrollLink to="services" smooth={true} duration={500} offset={-70}>
                                 <Button
-                                    rounded="none" // Bordes rectos, estilo japonés minimalista
+                                    rounded="none"
                                     size="lg"
                                     fontWeight="normal"
                                     px={6}

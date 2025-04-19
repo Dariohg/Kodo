@@ -63,7 +63,6 @@ const AboutUs = () => {
                             borderColor="kodo.red"
                             boxShadow="lg"
                             position="relative"
-                            // Eliminado el _before que estaba causando problemas
                         >
                             <Text fontSize={{ base: "md", md: "lg" }} mb={4} fontStyle="italic" color="white">
                                 Somos kōdo. Un equipo de tres amigos que empezaron a tirar líneas de código entre risas, debates y uno que otro rage quit.
