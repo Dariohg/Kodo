@@ -65,7 +65,7 @@ const Hero = () => {
                                     opacity: 0.3,
                                 }}
                             >
-                                Kōdo 三 — donde las ideas
+                                Kōdo 三 — Donde las ideas
                             </Text>
                             <br />
                             <Text as="span" color="kodo.gold">

@@ -8,7 +8,7 @@ import {
     Stack,
     Flex,
 } from "@chakra-ui/react";
-import { FaReact, FaServer, FaMobileAlt, FaDatabase } from "react-icons/fa";
+import { FaReact, FaServer, FaMobileAlt, FaMagic } from "react-icons/fa";
 import { ReactElement } from "react";
 
 interface FeatureProps {
@@ -69,23 +69,23 @@ const Services = () => {
                 <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
                     <Feature
                         icon={<Icon as={FaReact} w={10} h={10} color="kodo.gold" />}
-                        title="Desarrollo Frontend"
-                        text="Creamos interfaces modernas y atractivas utilizando las tecnologías más avanzadas como React, Angular y Vue."
+                        title="Diseño de Páginas Web"
+                        text="Creamos sitios web atractivos y modernos que funcionan perfectamente en cualquier dispositivo, con una experiencia de usuario intuitiva y agradable."
                     />
                     <Feature
                         icon={<Icon as={FaServer} w={10} h={10} color="kodo.gold" />}
-                        title="Desarrollo Backend"
-                        text="Construimos APIs robustas y escalables con Node.js, Go y Python, asegurando un rendimiento óptimo."
+                        title="Desarrollo de Sistemas"
+                        text="Construimos el motor que hace funcionar tus aplicaciones. Creamos sistemas confiables que procesan datos de forma eficiente y segura."
                     />
                     <Feature
                         icon={<Icon as={FaMobileAlt} w={10} h={10} color="kodo.gold" />}
                         title="Aplicaciones Móviles"
-                        text="Desarrollamos aplicaciones nativas e híbridas para iOS y Android que destacan por su usabilidad y rendimiento."
+                        text="Desarrollamos aplicaciones para tu teléfono o tablet Android que son rápidas, fáciles de usar y optimizadas para ofrecer la mejor experiencia posible."
                     />
                     <Feature
-                        icon={<Icon as={FaDatabase} w={10} h={10} color="kodo.gold" />}
-                        title="Bases de Datos"
-                        text="Diseñamos e implementamos soluciones de bases de datos SQL y NoSQL optimizadas para tus necesidades específicas."
+                        icon={<Icon as={FaMagic} w={10} h={10} color="kodo.gold" />}
+                        title="Rediseño Web"
+                        text="Renovamos y modernizamos tu sitio web existente para mejorar su imagen, rendimiento y experiencia de usuario, adaptándolo a las tendencias actuales."
                     />
                 </SimpleGrid>
             </Container>

@@ -14,6 +14,7 @@ import {
     FaNodeJs,
     FaPython,
     FaJs,
+    FaAndroid,
 } from "react-icons/fa";
 import {
     SiTypescript,
@@ -87,7 +88,15 @@ const Technologies = () => {
                         <TechIcon icon={<Icon as={SiNestjs} color="kodo.gold" />} name="NestJS" />
                         <TechIcon icon={<Icon as={FaPython} color="kodo.gold" />} name="Python" />
                         <TechIcon icon={<Icon as={SiGo} color="kodo.gold" />} name="Go" />
+                    </SimpleGrid>
+
+                    <Heading as="h3" fontSize="xl" mb={8} color="kodo.gold">
+                        Desarrollo Android
+                    </Heading>
+                    <SimpleGrid columns={columnCount} spacing={10} mb={16}>
                         <TechIcon icon={<Icon as={SiKotlin} color="kodo.gold" />} name="Kotlin" />
+                        <TechIcon icon={<Icon as={FaReact} color="kodo.gold" />} name="React Native" />
+                        <TechIcon icon={<Icon as={FaAndroid} color="kodo.gold" />} name="Android SDK" />
                     </SimpleGrid>
 
                     <Heading as="h3" fontSize="xl" mb={8} color="kodo.gold">
