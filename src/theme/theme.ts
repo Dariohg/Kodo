@@ -2,10 +2,10 @@ import { extendTheme } from "@chakra-ui/react";
 
 const colors = {
     kodo: {
-        black: "#090A0E",
+        black: "#12131A",  // Un negro al 90% para un contraste más suave
         gold: "#FBDC6A",
         red: "#B12B24",
-        darkGray: "#121318",
+        darkGray: "#16171E",  // Ajustado para que complemente al nuevo negro
         lightGray: "#8A8F98",
     },
 };
@@ -30,6 +30,7 @@ const components = {
             borderRadius: "0",
             fontWeight: "400",
             letterSpacing: "1px",
+            boxShadow: "none",  // Removemos sombras predeterminadas
         },
         variants: {
             primary: {
@@ -39,7 +40,7 @@ const components = {
                     bg: "kodo.gold",
                     opacity: 0.9,
                     transform: "translateY(-2px)",
-                    boxShadow: "md",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.1)",  // Sombra más sutil
                 },
                 transition: "all 0.3s ease",
             },
@@ -49,7 +50,7 @@ const components = {
                 border: "1px solid",
                 borderColor: "kodo.gold",
                 _hover: {
-                    bg: "rgba(251, 220, 106, 0.1)",
+                    bg: "rgba(251, 220, 106, 0.05)",  // Hover menos intenso
                     transform: "translateY(-2px)",
                 },
                 transition: "all 0.3s ease",
@@ -61,7 +62,7 @@ const components = {
                     bg: "kodo.red",
                     opacity: 0.9,
                     transform: "translateY(-2px)",
-                    boxShadow: "md",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.1)",  // Sombra más sutil
                 },
                 transition: "all 0.3s ease",
             },
@@ -89,7 +90,7 @@ const components = {
             field: {
                 borderRadius: "0",
                 _focus: {
-                    boxShadow: "0 0 0 1px rgba(251, 220, 106, 0.6)",
+                    boxShadow: "0 0 0 1px rgba(251, 220, 106, 0.4)",  // Sombra más sutil
                 },
             },
         },
@@ -97,13 +98,13 @@ const components = {
             outline: {
                 field: {
                     border: "1px solid",
-                    borderColor: "rgba(251, 220, 106, 0.2)",
+                    borderColor: "rgba(251, 220, 106, 0.15)",  // Borde más sutil
                     _hover: {
-                        borderColor: "rgba(251, 220, 106, 0.4)",
+                        borderColor: "rgba(251, 220, 106, 0.25)",
                     },
                     _focus: {
                         borderColor: "kodo.gold",
-                        boxShadow: "0 0 0 1px rgba(251, 220, 106, 0.6)",
+                        boxShadow: "0 0 0 1px rgba(251, 220, 106, 0.4)",  // Sombra más sutil
                     },
                 },
             },
@@ -114,6 +115,16 @@ const components = {
             transition: "all 0.3s ease",
         },
     },
+    // Personalización para las tarjetas
+    Box: {
+        variants: {
+            card: {
+                bg: "rgba(18, 19, 24, 0.6)",
+                borderRadius: "xl",
+                transition: "all 0.3s ease",
+            }
+        }
+    }
 };
 
 const config = {

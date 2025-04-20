@@ -15,19 +15,19 @@ import { ReactElement } from "react";
 // Animación para los elementos decorativos japoneses
 const fadeIn = keyframes`
     0% { opacity: 0; transform: translateY(10px); }
-    100% { opacity: 0.4; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(0); }
 `;
 
 // Animación de "tinta que se expande" para efectos de líneas
 const inkDraw = keyframes`
     0% { width: 0; opacity: 0; }
-    100% { width: 100%; opacity: 0.3; }
+    100% { width: 100%; opacity: 0.2; }
 `;
 
 // Línea decorativa de transición entre secciones
 const fadeInGradually = keyframes`
     0% { opacity: 0; }
-    100% { opacity: 0.3; }
+    100% { opacity: 0.2; }
 `;
 
 interface FeatureProps {
@@ -41,14 +41,14 @@ const Feature = ({ title, text, icon }: FeatureProps) => {
         <Stack
             align="start"
             p={6}
-            bg="kodo.darkGray"
+            bg="rgba(18, 19, 24, 0.6)"
             rounded="xl"
             borderLeft="4px solid"
             borderColor="kodo.gold"
             transition="all 0.3s ease"
             _hover={{
                 transform: "translateY(-5px)",
-                boxShadow: "lg",
+                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
                 borderColor: "kodo.red",
             }}
             position="relative"
@@ -60,7 +60,7 @@ const Feature = ({ title, text, icon }: FeatureProps) => {
                 align="center"
                 justify="center"
                 rounded="full"
-                bg="rgba(251, 220, 106, 0.1)"
+                bg="rgba(251, 220, 106, 0.05)"
                 mb={1}
             >
                 {icon}
@@ -79,13 +79,10 @@ const Services = () => {
             id="services"
             py={20}
             position="relative"
-            backgroundImage="linear-gradient(180deg, rgba(9, 10, 14, 0.95) 0%, rgba(9, 10, 14, 1) 100%)"
-            backgroundPosition="center"
-            backgroundRepeat="no-repeat"
-            backgroundSize="cover"
+            bg="kodo.black"
             overflow="hidden"
             borderTop="0"
-            mt={-1} // Elimina cualquier espacio entre secciones
+            mt={-1}
             _before={{
                 content: '""',
                 position: "absolute",
@@ -93,10 +90,10 @@ const Services = () => {
                 left: 0,
                 right: 0,
                 bottom: 0,
-                background: "radial-gradient(circle at 20% 30%, rgba(251, 220, 106, 0.05) 0%, transparent 70%)",
+                background: "radial-gradient(circle at 20% 30%, rgba(251, 220, 106, 0.03) 0%, transparent 70%)",
                 zIndex: 0,
             }}
-            // Mismo patrón de fondo sutil que el Hero
+            // Mismo patrón de fondo sutil que el Hero pero con opacidad reducida
             _after={{
                 content: '""',
                 position: "absolute",
@@ -106,7 +103,7 @@ const Services = () => {
                 bottom: 0,
                 backgroundImage: "url('https://www.transparenttextures.com/patterns/rice-paper.png')",
                 backgroundRepeat: "repeat",
-                opacity: 0.1,
+                opacity: 0.07,
                 zIndex: 0,
                 pointerEvents: "none",
             }}
@@ -130,7 +127,7 @@ const Services = () => {
                     width="2px"
                     height="120px"
                     bg="kodo.red"
-                    opacity={0.3}
+                    opacity={0.2}
                 />
                 <Box
                     position="absolute"
@@ -139,7 +136,7 @@ const Services = () => {
                     width="80px"
                     height="2px"
                     bg="kodo.red"
-                    opacity={0.3}
+                    opacity={0.2}
                 />
                 <Box
                     position="absolute"
@@ -148,7 +145,7 @@ const Services = () => {
                     width="40px"
                     height="2px"
                     bg="kodo.red"
-                    opacity={0.3}
+                    opacity={0.2}
                 />
                 <Box
                     position="absolute"
@@ -158,7 +155,7 @@ const Services = () => {
                     height="10px"
                     borderRadius="full"
                     bg="kodo.red"
-                    opacity={0.4}
+                    opacity={0.25}
                 />
             </Box>
 
@@ -186,7 +183,7 @@ const Services = () => {
                     borderRight="2px solid"
                     borderBottom="2px solid"
                     borderColor="kodo.gold"
-                    opacity={0.3}
+                    opacity={0.2}
                 />
                 <Box
                     position="absolute"
@@ -199,7 +196,7 @@ const Services = () => {
                     borderLeft="2px solid"
                     borderBottom="2px solid"
                     borderColor="kodo.gold"
-                    opacity={0.3}
+                    opacity={0.2}
                 />
                 {/* Segunda onda */}
                 <Box
@@ -213,7 +210,7 @@ const Services = () => {
                     borderRight="2px solid"
                     borderBottom="2px solid"
                     borderColor="kodo.gold"
-                    opacity={0.3}
+                    opacity={0.2}
                 />
                 <Box
                     position="absolute"
@@ -226,7 +223,7 @@ const Services = () => {
                     borderLeft="2px solid"
                     borderBottom="2px solid"
                     borderColor="kodo.gold"
-                    opacity={0.3}
+                    opacity={0.2}
                 />
                 {/* Tercera onda (un poco más arriba) */}
                 <Box
@@ -240,7 +237,7 @@ const Services = () => {
                     borderRight="2px solid"
                     borderBottom="2px solid"
                     borderColor="kodo.gold"
-                    opacity={0.2}
+                    opacity={0.15}
                 />
                 <Box
                     position="absolute"
@@ -253,7 +250,7 @@ const Services = () => {
                     borderLeft="2px solid"
                     borderBottom="2px solid"
                     borderColor="kodo.gold"
-                    opacity={0.2}
+                    opacity={0.15}
                 />
             </Box>
 
@@ -269,25 +266,7 @@ const Services = () => {
                 animation={`${fadeIn} 1.5s ease-out 1s forwards`}
                 display={{ base: "none", xl: "block" }}
             >
-                {/* Esquina superior izquierda */}
-                <Box
-                    position="absolute"
-                    top="0"
-                    left="0"
-                    width="30px"
-                    height="2px"
-                    bg="kodo.gold"
-                    opacity={0.2}
-                />
-                <Box
-                    position="absolute"
-                    top="0"
-                    left="0"
-                    width="2px"
-                    height="30px"
-                    bg="kodo.gold"
-                    opacity={0.2}
-                />
+
                 {/* Esquina superior derecha */}
                 <Box
                     position="absolute"
@@ -296,7 +275,7 @@ const Services = () => {
                     width="30px"
                     height="2px"
                     bg="kodo.gold"
-                    opacity={0.2}
+                    opacity={0.15}
                 />
                 <Box
                     position="absolute"
@@ -305,27 +284,9 @@ const Services = () => {
                     width="2px"
                     height="30px"
                     bg="kodo.gold"
-                    opacity={0.2}
+                    opacity={0.15}
                 />
-                {/* Esquina inferior izquierda */}
-                <Box
-                    position="absolute"
-                    bottom="0"
-                    left="0"
-                    width="30px"
-                    height="2px"
-                    bg="kodo.gold"
-                    opacity={0.2}
-                />
-                <Box
-                    position="absolute"
-                    bottom="0"
-                    left="0"
-                    width="2px"
-                    height="30px"
-                    bg="kodo.gold"
-                    opacity={0.2}
-                />
+
                 {/* Esquina inferior derecha */}
                 <Box
                     position="absolute"
@@ -334,7 +295,7 @@ const Services = () => {
                     width="30px"
                     height="2px"
                     bg="kodo.gold"
-                    opacity={0.2}
+                    opacity={0.15}
                 />
                 <Box
                     position="absolute"
@@ -343,7 +304,7 @@ const Services = () => {
                     width="2px"
                     height="30px"
                     bg="kodo.gold"
-                    opacity={0.2}
+                    opacity={0.15}
                 />
             </Box>
 
@@ -365,7 +326,7 @@ const Services = () => {
                     width="40%"
                     height="1px"
                     bg="kodo.gold"
-                    opacity={0.2}
+                    opacity={0.15}
                 />
                 <Box
                     position="absolute"
@@ -374,7 +335,7 @@ const Services = () => {
                     width="50%"
                     height="1px"
                     bg="kodo.gold"
-                    opacity={0.1}
+                    opacity={0.08}
                 />
             </Box>
 

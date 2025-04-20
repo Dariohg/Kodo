@@ -37,7 +37,7 @@ const subtleBounce = keyframes`
 // Animación para los elementos decorativos japoneses
 const fadeIn = keyframes`
     0% { opacity: 0; transform: translateY(10px); }
-    100% { opacity: 0.4; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(0); }
 `;
 
 const Hero = () => {
@@ -47,7 +47,7 @@ const Hero = () => {
             position="relative"
             minH={{ base: "auto", md: "100vh" }}
             py={{ base: 16, md: 0 }}
-            backgroundImage="linear-gradient(180deg, rgba(9, 10, 14, 0.95) 0%, rgba(9, 10, 14, 1) 100%)"
+            bg="kodo.black"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
@@ -58,10 +58,10 @@ const Hero = () => {
                 left: 0,
                 right: 0,
                 bottom: 0,
-                background: "radial-gradient(circle at 20% 30%, rgba(251, 220, 106, 0.05) 0%, transparent 70%)",
+                background: "radial-gradient(circle at 20% 30%, rgba(251, 220, 106, 0.03) 0%, transparent 70%)",
                 zIndex: 0,
             }}
-            // patrón de fondo sutil con opacidad baja
+            // patrón de fondo sutil con opacidad más baja
             _after={{
                 content: '""',
                 position: "absolute",
@@ -71,7 +71,7 @@ const Hero = () => {
                 bottom: 0,
                 backgroundImage: "url('https://www.transparenttextures.com/patterns/rice-paper.png')",
                 backgroundRepeat: "repeat",
-                opacity: 0.1,
+                opacity: 0.07,
                 zIndex: 0,
                 pointerEvents: "none",
             }}
@@ -96,7 +96,7 @@ const Hero = () => {
                     width="80px"
                     height="5px"
                     bg="kodo.red"
-                    opacity={0.3}
+                    opacity={0.2}
                 />
                 <Box
                     position="absolute"
@@ -105,7 +105,7 @@ const Hero = () => {
                     width="80px"
                     height="3px"
                     bg="kodo.red"
-                    opacity={0.2}
+                    opacity={0.15}
                 />
                 <Box
                     position="absolute"
@@ -114,7 +114,7 @@ const Hero = () => {
                     width="5px"
                     height="60px"
                     bg="kodo.red"
-                    opacity={0.3}
+                    opacity={0.2}
                 />
                 <Box
                     position="absolute"
@@ -123,7 +123,7 @@ const Hero = () => {
                     width="5px"
                     height="60px"
                     bg="kodo.red"
-                    opacity={0.3}
+                    opacity={0.2}
                 />
             </Box>
 
@@ -146,7 +146,7 @@ const Hero = () => {
                     width="5px"
                     height="120px"
                     bg="kodo.gold"
-                    opacity={0.3}
+                    opacity={0.2}
                     transform="rotate(15deg)"
                     transformOrigin="top"
                 />
@@ -157,7 +157,7 @@ const Hero = () => {
                     width="40px"
                     height="5px"
                     bg="kodo.gold"
-                    opacity={0.3}
+                    opacity={0.2}
                     transform="rotate(-10deg)"
                 />
                 <Box
@@ -167,7 +167,7 @@ const Hero = () => {
                     width="30px"
                     height="5px"
                     bg="kodo.gold"
-                    opacity={0.3}
+                    opacity={0.2}
                 />
             </Box>
 
@@ -194,7 +194,7 @@ const Hero = () => {
                         width: "10px",
                         height: "10px",
                         bg: "kodo.red",
-                        opacity: 0.5,
+                        opacity: 0.3,
                     }}
                 />
 
@@ -224,7 +224,7 @@ const Hero = () => {
                                     left: 0,
                                     bg: "kodo.red",
                                     zIndex: -1,
-                                    opacity: 0.3,
+                                    opacity: 0.2,
                                     animation: `${inkSpread} 1.5s ease-out forwards`,
                                 }}
                             >
@@ -258,7 +258,6 @@ const Hero = () => {
                                         bg: "kodo.gold",
                                         opacity: 0.9,
                                         transform: "translateY(-2px)",
-                                        boxShadow: "md",
                                     }}
                                     transition="all 0.3s ease"
                                 >
@@ -274,7 +273,7 @@ const Hero = () => {
                                     variant="secondary"
                                     w={{ base: "full", sm: "auto" }}
                                     _hover={{
-                                        bg: "rgba(251, 220, 106, 0.1)",
+                                        bg: "rgba(251, 220, 106, 0.05)",
                                         transform: "translateY(-2px)",
                                     }}
                                     transition="all 0.3s ease"
@@ -320,7 +319,7 @@ const Hero = () => {
                                     borderRadius="full"
                                     border="1px solid"
                                     borderColor="kodo.gold"
-                                    opacity={0.2}
+                                    opacity={0.15}
                                 />
 
                                 {/* Elemento decorativo: círculo ensō incompleto */}
@@ -334,7 +333,7 @@ const Hero = () => {
                                     borderRight="1px solid"
                                     borderBottom="0"
                                     borderColor="kodo.red"
-                                    opacity={0.15}
+                                    opacity={0.1}
                                     transform="rotate(-45deg)"
                                 />
 
@@ -365,11 +364,11 @@ const Hero = () => {
                 opacity={0}
                 animation={`${fadeIn} 1.5s ease-out 1.2s forwards`}
             >
-                <Box position="absolute" top="0" left="0" width="4px" height="4px" bg="kodo.gold" borderRadius="full" />
-                <Box position="absolute" top="0" left="0" width="4px" height="120px" bg="kodo.gold" opacity={0.2} />
-                <Box position="absolute" top="30px" left="-8px" width="20px" height="1px" bg="kodo.gold" opacity={0.3} />
-                <Box position="absolute" top="60px" left="-8px" width="20px" height="1px" bg="kodo.gold" opacity={0.3} />
-                <Box position="absolute" top="90px" left="-8px" width="20px" height="1px" bg="kodo.gold" opacity={0.3} />
+                <Box position="absolute" top="0" left="0" width="4px" height="4px" bg="kodo.gold" borderRadius="full" opacity={0.2} />
+                <Box position="absolute" top="0" left="0" width="4px" height="120px" bg="kodo.gold" opacity={0.15} />
+                <Box position="absolute" top="30px" left="-8px" width="20px" height="1px" bg="kodo.gold" opacity={0.2} />
+                <Box position="absolute" top="60px" left="-8px" width="20px" height="1px" bg="kodo.gold" opacity={0.2} />
+                <Box position="absolute" top="90px" left="-8px" width="20px" height="1px" bg="kodo.gold" opacity={0.2} />
             </Box>
 
             {/* Flecha hacia abajo con animación más sutil */}
@@ -387,11 +386,12 @@ const Hero = () => {
                         w={10}
                         h={10}
                         color="kodo.gold"
+                        opacity={0.7}
                         cursor="pointer"
                         sx={{
                             animation: `${subtleBounce} 3s ease-in-out infinite`,
                         }}
-                        _hover={{ transform: "scale(1.1)" }}
+                        _hover={{ transform: "scale(1.1)", opacity: 1 }}
                         transition="all 0.3s ease"
                     />
                 </ScrollLink>
