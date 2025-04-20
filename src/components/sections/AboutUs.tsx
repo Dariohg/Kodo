@@ -7,8 +7,21 @@ import {
     Flex,
     Icon,
     SimpleGrid,
+    keyframes,
 } from "@chakra-ui/react";
 import { FaCode, FaHandshake, FaLightbulb } from "react-icons/fa";
+
+// Animación sutil para los elementos decorativos
+const fadeSlideIn = keyframes`
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 0.4; transform: translateY(0); }
+`;
+
+// Animación sutil para destacar el texto
+const highlightText = keyframes`
+    0% { background-position: -100% 0; }
+    100% { background-position: 200% 0; }
+`;
 
 interface ValueProps {
     title: string;
@@ -18,7 +31,21 @@ interface ValueProps {
 
 const Value = ({ title, text, icon }: ValueProps) => {
     return (
-        <Stack align="center" textAlign="center">
+        <Stack
+            align="center"
+            textAlign="center"
+            p={6}
+            bg="kodo.darkGray"
+            rounded="xl"
+            borderTop="3px solid"
+            borderColor="kodo.gold"
+            transition="all 0.3s ease"
+            _hover={{
+                transform: "translateY(-5px)",
+                boxShadow: "lg",
+                borderColor: "kodo.red",
+            }}
+        >
             <Flex
                 w={16}
                 h={16}
@@ -40,8 +67,133 @@ const Value = ({ title, text, icon }: ValueProps) => {
 
 const AboutUs = () => {
     return (
-        <Box id="about" py={20} bg="kodo.black">
-            <Container maxW="container.xl">
+        <Box
+            id="about"
+            py={20}
+            bg="kodo.black"
+            position="relative"
+            _before={{
+                content: '""',
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: "radial-gradient(circle at 80% 20%, rgba(177, 43, 36, 0.05) 0%, transparent 70%)",
+                zIndex: 0,
+            }}
+            // Añadir patrón de fondo sutil con opacidad baja
+            _after={{
+                content: '""',
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundImage: "url('https://www.transparenttextures.com/patterns/rice-paper.png')",
+                backgroundRepeat: "repeat",
+                opacity: 0.1,
+                zIndex: 0,
+                pointerEvents: "none",
+            }}
+            overflow="hidden"
+        >
+            {/* Elemento decorativo estilo caligrafía vertical */}
+            <Box
+                position="absolute"
+                top="60px"
+                left="5%"
+                height="200px"
+                width="20px"
+                zIndex={0}
+                opacity={0}
+                animation={`${fadeSlideIn} 1.5s ease-out 0.5s forwards`}
+                display={{ base: "none", lg: "block" }}
+            >
+                <Box
+                    position="absolute"
+                    height="100%"
+                    width="3px"
+                    bg="kodo.red"
+                    opacity={0.2}
+                    left="8px"
+                />
+                <Box
+                    position="absolute"
+                    height="3px"
+                    width="20px"
+                    bg="kodo.red"
+                    opacity={0.2}
+                    top="20px"
+                    transform="rotate(30deg)"
+                />
+                <Box
+                    position="absolute"
+                    height="3px"
+                    width="20px"
+                    bg="kodo.red"
+                    opacity={0.2}
+                    top="60px"
+                    transform="rotate(-30deg)"
+                />
+                <Box
+                    position="absolute"
+                    height="3px"
+                    width="20px"
+                    bg="kodo.red"
+                    opacity={0.2}
+                    top="100px"
+                    transform="rotate(30deg)"
+                />
+                <Box
+                    position="absolute"
+                    height="3px"
+                    width="20px"
+                    bg="kodo.red"
+                    opacity={0.2}
+                    top="140px"
+                    transform="rotate(-30deg)"
+                />
+            </Box>
+
+            {/* Elemento decorativo tipo sello japonés */}
+            <Box
+                position="absolute"
+                bottom="60px"
+                right="5%"
+                height="80px"
+                width="80px"
+                border="2px solid"
+                borderColor="kodo.gold"
+                opacity={0}
+                animation={`${fadeSlideIn} 1.5s ease-out 0.8s forwards`}
+                display={{ base: "none", lg: "block" }}
+                _before={{
+                    content: '""',
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    height: "40px",
+                    width: "40px",
+                    border: "2px solid",
+                    borderColor: "kodo.gold",
+                    opacity: 0.3,
+                }}
+                _after={{
+                    content: '""',
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    height: "15px",
+                    width: "15px",
+                    bg: "kodo.gold",
+                    opacity: 0.3,
+                }}
+            />
+
+            <Container maxW="container.xl" position="relative" zIndex={1}>
                 <Stack spacing={8} as={Container} maxW="4xl" textAlign="center" mb={16}>
                     <Heading fontSize="3xl">
                         Sobre <Text as="span" color="kodo.gold">Nosotros</Text>
@@ -64,7 +216,24 @@ const AboutUs = () => {
                             boxShadow="lg"
                             position="relative"
                         >
-                            <Text fontSize={{ base: "md", md: "lg" }} mb={4} fontStyle="italic" color="white">
+                            <Text
+                                fontSize={{ base: "md", md: "lg" }}
+                                mb={4}
+                                fontStyle="italic"
+                                color="white"
+                                position="relative"
+                                display="inline-block"
+                                _after={{
+                                    content: '""',
+                                    position: "absolute",
+                                    bottom: 0,
+                                    left: 0,
+                                    height: "2px",
+                                    width: "50%",
+                                    background: "linear-gradient(90deg, rgba(251, 220, 106, 0.5), transparent)",
+                                    animation: `${highlightText} 3s ease-in-out infinite`
+                                }}
+                            >
                                 Somos kōdo. Un equipo de tres amigos que empezaron a tirar líneas de código entre risas, debates y uno que otro rage quit.
                             </Text>
                             <Text fontSize={{ base: "md", md: "lg" }} mb={4} color="gray.300">

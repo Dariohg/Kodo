@@ -14,9 +14,23 @@ import {
     HStack,
     Icon,
     FormErrorMessage,
+    keyframes,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+
+// Animación para los elementos decorativos
+const fadeIn = keyframes`
+    0% { opacity: 0; transform: scale(0.9) translateY(10px); }
+    100% { opacity: 0.3; transform: scale(1) translateY(0); }
+`;
+
+// Animación sutil para el borde del formulario
+const borderPulse = keyframes`
+    0% { border-color: rgba(251, 220, 106, 0.2); }
+    50% { border-color: rgba(251, 220, 106, 0.5); }
+    100% { border-color: rgba(251, 220, 106, 0.2); }
+`;
 
 interface ContactFormData {
     name: string;
@@ -34,8 +48,18 @@ interface FormErrors {
 
 const ContactInfo = ({ icon, title, content }: { icon: React.ElementType; title: string; content: string }) => {
     return (
-        <HStack spacing={4} align="start">
-            <Icon as={icon} w={6} h={6} color="kodo.gold" />
+        <HStack
+            spacing={4}
+            align="start"
+            transition="all 0.3s ease"
+            _hover={{
+                transform: "translateX(5px)",
+                "& svg": {
+                    color: "kodo.red"
+                }
+            }}
+        >
+            <Icon as={icon} w={6} h={6} color="kodo.gold" transition="all 0.3s ease" />
             <Box>
                 <Text fontWeight="bold" fontSize="md">
                     {title}
@@ -111,8 +135,133 @@ const Contact = () => {
     };
 
     return (
-        <Box id="contact" py={20} bg="kodo.black">
-            <Container maxW="container.xl">
+        <Box
+            id="contact"
+            py={20}
+            bg="kodo.black"
+            position="relative"
+            _before={{
+                content: '""',
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: "radial-gradient(circle at 70% 80%, rgba(251, 220, 106, 0.06) 0%, transparent 70%)",
+                zIndex: 0,
+            }}
+            // Añadir patrón de fondo sutil con opacidad baja
+            _after={{
+                content: '""',
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundImage: "url('https://www.transparenttextures.com/patterns/rice-paper.png')",
+                backgroundRepeat: "repeat",
+                opacity: 0.1,
+                zIndex: 0,
+                pointerEvents: "none",
+            }}
+            overflow="hidden"
+        >
+            {/* Elemento decorativo estilo sobre/mensaje */}
+            <Box
+                position="absolute"
+                top="80px"
+                left="60px"
+                height="60px"
+                width="80px"
+                zIndex={0}
+                opacity={0}
+                animation={`${fadeIn} 1.5s ease-out 0.5s forwards`}
+                display={{ base: "none", lg: "block" }}
+            >
+                <Box
+                    position="absolute"
+                    height="100%"
+                    width="100%"
+                    border="2px solid"
+                    borderColor="kodo.gold"
+                    opacity={0.2}
+                />
+                <Box
+                    position="absolute"
+                    top="15px"
+                    left="15px"
+                    height="2px"
+                    width="50px"
+                    bg="kodo.gold"
+                    opacity={0.2}
+                />
+                <Box
+                    position="absolute"
+                    top="25px"
+                    left="15px"
+                    height="2px"
+                    width="50px"
+                    bg="kodo.gold"
+                    opacity={0.2}
+                />
+                <Box
+                    position="absolute"
+                    top="35px"
+                    left="15px"
+                    height="2px"
+                    width="30px"
+                    bg="kodo.gold"
+                    opacity={0.2}
+                />
+            </Box>
+
+            {/* Elemento decorativo estilo teléfono/comunicación */}
+            <Box
+                position="absolute"
+                bottom="80px"
+                right="60px"
+                height="100px"
+                width="100px"
+                borderRadius="full"
+                zIndex={0}
+                opacity={0}
+                animation={`${fadeIn} 1.5s ease-out 0.7s forwards`}
+                display={{ base: "none", lg: "block" }}
+            >
+                <Box
+                    position="absolute"
+                    height="100%"
+                    width="100%"
+                    borderRadius="full"
+                    border="2px solid"
+                    borderColor="kodo.red"
+                    opacity={0.15}
+                />
+                <Box
+                    position="absolute"
+                    height="80%"
+                    width="80%"
+                    top="10%"
+                    left="10%"
+                    borderRadius="full"
+                    border="2px solid"
+                    borderColor="kodo.red"
+                    opacity={0.12}
+                />
+                <Box
+                    position="absolute"
+                    height="60%"
+                    width="60%"
+                    top="20%"
+                    left="20%"
+                    borderRadius="full"
+                    border="2px solid"
+                    borderColor="kodo.red"
+                    opacity={0.09}
+                />
+            </Box>
+
+            <Container maxW="container.xl" position="relative" zIndex={1}>
                 <Box textAlign="center" mb={16}>
                     <Heading fontSize="3xl" mb={4}>
                         <Text as="span" color="kodo.gold">Contáctanos</Text>
@@ -157,6 +306,11 @@ const Contact = () => {
                             borderLeft="4px solid"
                             borderColor="kodo.red"
                             rounded="md"
+                            transition="transform 0.3s ease"
+                            _hover={{
+                                transform: "translateY(-5px)",
+                                boxShadow: "lg"
+                            }}
                         >
                             <Text fontSize="md" fontWeight="medium" mb={2}>
                                 Horario de atención
@@ -177,6 +331,13 @@ const Contact = () => {
                         w={{ base: "100%", lg: "67%" }}
                         borderTop="4px solid"
                         borderColor="kodo.gold"
+                        position="relative"
+                        _hover={{
+                            boxShadow: "0 0 20px rgba(251, 220, 106, 0.1)"
+                        }}
+                        sx={{
+                            animation: `${borderPulse} 3s infinite`
+                        }}
                     >
                         <form onSubmit={handleSubmit}>
                             <Stack spacing={5}>
@@ -195,6 +356,10 @@ const Contact = () => {
                                                 borderColor: "kodo.gold",
                                                 boxShadow: "0 0 0 1px rgba(251, 220, 106, 0.2)",
                                             }}
+                                            transition="all 0.3s ease"
+                                            _hover={{
+                                                borderColor: "rgba(251, 220, 106, 0.4)"
+                                            }}
                                         />
                                         <FormErrorMessage>{errors.name}</FormErrorMessage>
                                     </FormControl>
@@ -212,6 +377,10 @@ const Contact = () => {
                                             _focus={{
                                                 borderColor: "kodo.gold",
                                                 boxShadow: "0 0 0 1px rgba(251, 220, 106, 0.2)",
+                                            }}
+                                            transition="all 0.3s ease"
+                                            _hover={{
+                                                borderColor: "rgba(251, 220, 106, 0.4)"
                                             }}
                                         />
                                         <FormErrorMessage>{errors.email}</FormErrorMessage>
@@ -232,6 +401,10 @@ const Contact = () => {
                                             borderColor: "kodo.gold",
                                             boxShadow: "0 0 0 1px rgba(251, 220, 106, 0.2)",
                                         }}
+                                        transition="all 0.3s ease"
+                                        _hover={{
+                                            borderColor: "rgba(251, 220, 106, 0.4)"
+                                        }}
                                     />
                                     <FormErrorMessage>{errors.subject}</FormErrorMessage>
                                 </FormControl>
@@ -250,6 +423,10 @@ const Contact = () => {
                                             borderColor: "kodo.gold",
                                             boxShadow: "0 0 0 1px rgba(251, 220, 106, 0.2)",
                                         }}
+                                        transition="all 0.3s ease"
+                                        _hover={{
+                                            borderColor: "rgba(251, 220, 106, 0.4)"
+                                        }}
                                     />
                                     <FormErrorMessage>{errors.message}</FormErrorMessage>
                                 </FormControl>
@@ -262,6 +439,23 @@ const Contact = () => {
                                         isLoading={isSubmitting}
                                         loadingText="Enviando"
                                         size="lg"
+                                        position="relative"
+                                        overflow="hidden"
+                                        _before={{
+                                            content: '""',
+                                            position: "absolute",
+                                            top: 0,
+                                            left: "-100%",
+                                            width: "100%",
+                                            height: "100%",
+                                            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
+                                            transition: "all 0.5s ease",
+                                        }}
+                                        _hover={{
+                                            _before: {
+                                                left: "100%"
+                                            }
+                                        }}
                                     >
                                         Enviar mensaje
                                     </Button>

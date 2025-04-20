@@ -388,11 +388,13 @@ const Services = () => {
                         mx="auto"
                     >
                         Nuestros <Text as="span" color="kodo.gold">Servicios</Text>
-                        {/* Línea decorativa debajo del título */}
+                        {/* Línea decorativa centrada debajo del título - Corregida */}
                         <Box
                             position="absolute"
                             bottom="-10px"
-                            left="25%"
+                            left="0"
+                            right="0"
+                            margin="0 auto"
                             width="50%"
                             height="2px"
                             bg="kodo.red"
