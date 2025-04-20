@@ -23,7 +23,7 @@ const softGlow = keyframes`
 // Animación para los elementos decorativos
 const fadeIn = keyframes`
     0% { opacity: 0; transform: translateY(10px); }
-    100% { opacity: 0.3; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(0); }
 `;
 
 const SocialButton = ({
@@ -64,70 +64,12 @@ const SocialButton = ({
 const Footer = () => {
     return (
         <Box
-            bg="kodo.black"
             color="white"
             borderTop="1px solid"
             borderColor="rgba(251, 220, 106, 0.2)"
             position="relative"
-            _before={{
-                content: '""',
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: "radial-gradient(circle at 50% 100%, rgba(251, 220, 106, 0.05) 0%, transparent 60%)",
-                zIndex: 0,
-            }}
-            _after={{
-                content: '""',
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                backgroundImage: "url('https://www.transparenttextures.com/patterns/rice-paper.png')",
-                backgroundRepeat: "repeat",
-                opacity: 0.05,
-                zIndex: 0,
-                pointerEvents: "none",
-            }}
             overflow="hidden"
         >
-            {/* Elemento decorativo estilo separador japonés */}
-            <Box
-                position="absolute"
-                top="40px"
-                left="10%"
-                width="40px"
-                height="2px"
-                bg="kodo.gold"
-                opacity={0}
-                animation={`${fadeIn} 1.5s ease-out 0.5s forwards`}
-                display={{ base: "none", lg: "block" }}
-            />
-            <Box
-                position="absolute"
-                top="50px"
-                left="10%"
-                width="30px"
-                height="2px"
-                bg="kodo.gold"
-                opacity={0}
-                animation={`${fadeIn} 1.5s ease-out 0.7s forwards`}
-                display={{ base: "none", lg: "block" }}
-            />
-            <Box
-                position="absolute"
-                top="60px"
-                left="10%"
-                width="20px"
-                height="2px"
-                bg="kodo.gold"
-                opacity={0}
-                animation={`${fadeIn} 1.5s ease-out 0.9s forwards`}
-                display={{ base: "none", lg: "block" }}
-            />
 
             {/* Elemento decorativo estilo kanji/símbolo en la esquina derecha */}
             <Box
@@ -139,6 +81,7 @@ const Footer = () => {
                 opacity={0}
                 animation={`${fadeIn} 1.5s ease-out 0.6s forwards`}
                 display={{ base: "none", lg: "block" }}
+                zIndex={1}
             >
                 <Box
                     position="absolute"

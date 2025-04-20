@@ -31,7 +31,7 @@ import {
 // Animación para los elementos decorativos
 const fadeRotateIn = keyframes`
     0% { opacity: 0; transform: rotate(-10deg) translateY(20px); }
-    100% { opacity: 0.3; transform: rotate(0) translateY(0); }
+    100% { opacity: 1; transform: rotate(0) translateY(0); }
 `;
 
 // Animación para el icono en hover
@@ -77,32 +77,7 @@ const Technologies = () => {
         <Box
             id="technologies"
             py={20}
-            bg="kodo.black"
             position="relative"
-            _before={{
-                content: '""',
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: "radial-gradient(circle at 30% 70%, rgba(251, 220, 106, 0.05) 0%, transparent 70%)",
-                zIndex: 0,
-            }}
-            // Añadir patrón de fondo sutil con opacidad baja
-            _after={{
-                content: '""',
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                backgroundImage: "url('https://www.transparenttextures.com/patterns/rice-paper.png')",
-                backgroundRepeat: "repeat",
-                opacity: 0.1,
-                zIndex: 0,
-                pointerEvents: "none",
-            }}
             overflow="hidden"
         >
             {/* Elemento decorativo estilo code brackets */}
@@ -112,7 +87,7 @@ const Technologies = () => {
                 right="40px"
                 height="100px"
                 width="50px"
-                zIndex={0}
+                zIndex={1}
                 opacity={0}
                 animation={`${fadeRotateIn} 1.5s ease-out 0.5s forwards`}
                 display={{ base: "none", lg: "block" }}
@@ -155,7 +130,7 @@ const Technologies = () => {
                 left="40px"
                 height="150px"
                 width="40px"
-                zIndex={0}
+                zIndex={1}
                 opacity={0}
                 animation={`${fadeRotateIn} 1.5s ease-out 0.7s forwards`}
                 display={{ base: "none", lg: "block" }}

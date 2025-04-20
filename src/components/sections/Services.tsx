@@ -79,34 +79,9 @@ const Services = () => {
             id="services"
             py={20}
             position="relative"
-            bg="kodo.black"
             overflow="hidden"
             borderTop="0"
             mt={-1}
-            _before={{
-                content: '""',
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: "radial-gradient(circle at 20% 30%, rgba(251, 220, 106, 0.03) 0%, transparent 70%)",
-                zIndex: 0,
-            }}
-            // Mismo patrón de fondo sutil que el Hero pero con opacidad reducida
-            _after={{
-                content: '""',
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                backgroundImage: "url('https://www.transparenttextures.com/patterns/rice-paper.png')",
-                backgroundRepeat: "repeat",
-                opacity: 0.07,
-                zIndex: 0,
-                pointerEvents: "none",
-            }}
         >
             {/* Elemento decorativo: kanji abstracto (círculos y líneas que sugieren un kanji) */}
             <Box
@@ -115,7 +90,7 @@ const Services = () => {
                 right="60px"
                 width="80px"
                 height="120px"
-                zIndex={0}
+                zIndex={1}
                 opacity={0}
                 animation={`${fadeIn} 1.5s ease-out 0.5s forwards`}
                 display={{ base: "none", lg: "block" }}
@@ -166,7 +141,7 @@ const Services = () => {
                 left="40px"
                 width="100px"
                 height="60px"
-                zIndex={0}
+                zIndex={1}
                 opacity={0}
                 animation={`${fadeIn} 1.5s ease-out 0.8s forwards`}
                 display={{ base: "none", lg: "block" }}
@@ -261,12 +236,11 @@ const Services = () => {
                 right="5%"
                 width="150px"
                 height="150px"
-                zIndex={0}
+                zIndex={1}
                 opacity={0}
                 animation={`${fadeIn} 1.5s ease-out 1s forwards`}
                 display={{ base: "none", xl: "block" }}
             >
-
                 {/* Esquina superior derecha */}
                 <Box
                     position="absolute"
@@ -349,7 +323,7 @@ const Services = () => {
                         mx="auto"
                     >
                         Nuestros <Text as="span" color="kodo.gold">Servicios</Text>
-                        {/* Línea decorativa centrada debajo del título - Corregida */}
+                        {/* Línea decorativa centrada debajo del título */}
                         <Box
                             position="absolute"
                             bottom="-10px"

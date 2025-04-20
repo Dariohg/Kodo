@@ -14,7 +14,7 @@ import { FaCode, FaHandshake, FaLightbulb } from "react-icons/fa";
 // Animación sutil para los elementos decorativos
 const fadeSlideIn = keyframes`
     0% { opacity: 0; transform: translateY(10px); }
-    100% { opacity: 0.4; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(0); }
 `;
 
 // Animación sutil para destacar el texto
@@ -70,32 +70,7 @@ const AboutUs = () => {
         <Box
             id="about"
             py={20}
-            bg="kodo.black"
             position="relative"
-            _before={{
-                content: '""',
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: "radial-gradient(circle at 80% 20%, rgba(177, 43, 36, 0.05) 0%, transparent 70%)",
-                zIndex: 0,
-            }}
-            // Añadir patrón de fondo sutil con opacidad baja
-            _after={{
-                content: '""',
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                backgroundImage: "url('https://www.transparenttextures.com/patterns/rice-paper.png')",
-                backgroundRepeat: "repeat",
-                opacity: 0.1,
-                zIndex: 0,
-                pointerEvents: "none",
-            }}
             overflow="hidden"
         >
             {/* Elemento decorativo estilo caligrafía vertical */}
@@ -105,7 +80,7 @@ const AboutUs = () => {
                 left="5%"
                 height="200px"
                 width="20px"
-                zIndex={0}
+                zIndex={1}
                 opacity={0}
                 animation={`${fadeSlideIn} 1.5s ease-out 0.5s forwards`}
                 display={{ base: "none", lg: "block" }}
@@ -168,6 +143,7 @@ const AboutUs = () => {
                 opacity={0}
                 animation={`${fadeSlideIn} 1.5s ease-out 0.8s forwards`}
                 display={{ base: "none", lg: "block" }}
+                zIndex={1}
                 _before={{
                     content: '""',
                     position: "absolute",

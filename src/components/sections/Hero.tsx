@@ -47,34 +47,6 @@ const Hero = () => {
             position="relative"
             minH={{ base: "auto", md: "100vh" }}
             py={{ base: 16, md: 0 }}
-            bg="kodo.black"
-            backgroundPosition="center"
-            backgroundRepeat="no-repeat"
-            backgroundSize="cover"
-            _before={{
-                content: '""',
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: "radial-gradient(circle at 20% 30%, rgba(251, 220, 106, 0.03) 0%, transparent 70%)",
-                zIndex: 0,
-            }}
-            // patrón de fondo sutil con opacidad más baja
-            _after={{
-                content: '""',
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                backgroundImage: "url('https://www.transparenttextures.com/patterns/rice-paper.png')",
-                backgroundRepeat: "repeat",
-                opacity: 0.07,
-                zIndex: 0,
-                pointerEvents: "none",
-            }}
             overflow="hidden"
         >
             {/* Elemento decorativo japonés (torii simplificado) en esquina superior derecha */}
@@ -84,7 +56,7 @@ const Hero = () => {
                 right="40px"
                 width="100px"
                 height="60px"
-                zIndex={0}
+                zIndex={1}
                 opacity={0}
                 animation={`${fadeIn} 1.5s ease-out 0.5s forwards`}
                 display={{ base: "none", lg: "block" }}
@@ -134,7 +106,7 @@ const Hero = () => {
                 left="40px"
                 width="60px"
                 height="120px"
-                zIndex={0}
+                zIndex={1}
                 opacity={0}
                 animation={`${fadeIn} 1.5s ease-out 0.8s forwards`}
                 display={{ base: "none", lg: "block" }}
@@ -337,7 +309,6 @@ const Hero = () => {
                                     transform="rotate(-45deg)"
                                 />
 
-                                {/* Logo de Kōdo 三 con animación suave */}
                                 <Image
                                     width={{ base: "180px", md: "300px" }}
                                     height={{ base: "180px", md: "300px" }}
@@ -359,7 +330,7 @@ const Hero = () => {
                 right="60px"
                 width="4px"
                 height="120px"
-                zIndex={0}
+                zIndex={1}
                 display={{ base: "none", lg: "block" }}
                 opacity={0}
                 animation={`${fadeIn} 1.5s ease-out 1.2s forwards`}

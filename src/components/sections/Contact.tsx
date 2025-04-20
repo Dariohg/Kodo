@@ -22,7 +22,7 @@ import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 // Animación para los elementos decorativos
 const fadeIn = keyframes`
     0% { opacity: 0; transform: scale(0.9) translateY(10px); }
-    100% { opacity: 0.3; transform: scale(1) translateY(0); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
 `;
 
 // Animación sutil para el borde del formulario
@@ -138,32 +138,7 @@ const Contact = () => {
         <Box
             id="contact"
             py={20}
-            bg="kodo.black"
             position="relative"
-            _before={{
-                content: '""',
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: "radial-gradient(circle at 70% 80%, rgba(251, 220, 106, 0.06) 0%, transparent 70%)",
-                zIndex: 0,
-            }}
-            // Añadir patrón de fondo sutil con opacidad baja
-            _after={{
-                content: '""',
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                backgroundImage: "url('https://www.transparenttextures.com/patterns/rice-paper.png')",
-                backgroundRepeat: "repeat",
-                opacity: 0.1,
-                zIndex: 0,
-                pointerEvents: "none",
-            }}
             overflow="hidden"
         >
             {/* Elemento decorativo estilo sobre/mensaje */}
@@ -173,7 +148,7 @@ const Contact = () => {
                 left="60px"
                 height="60px"
                 width="80px"
-                zIndex={0}
+                zIndex={1}
                 opacity={0}
                 animation={`${fadeIn} 1.5s ease-out 0.5s forwards`}
                 display={{ base: "none", lg: "block" }}
@@ -223,7 +198,7 @@ const Contact = () => {
                 height="100px"
                 width="100px"
                 borderRadius="full"
-                zIndex={0}
+                zIndex={1}
                 opacity={0}
                 animation={`${fadeIn} 1.5s ease-out 0.7s forwards`}
                 display={{ base: "none", lg: "block" }}
