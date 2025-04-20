@@ -124,6 +124,61 @@ const components = {
                 transition: "all 0.3s ease",
             }
         }
+    },
+    // Personalización del Toast
+    Toast: {
+        baseStyle: {
+            container: {
+                bg: "kodo.darkGray",
+                color: "white",
+                borderLeft: "4px solid",
+                borderColor: "kodo.gold",
+                borderRadius: "md"
+            },
+            title: {
+                color: "white",
+                fontWeight: "bold"
+            },
+            description: {
+                color: "gray.300"
+            },
+            icon: {
+                color: "kodo.gold"
+            },
+            status: {
+                success: {
+                    bg: "kodo.darkGray",
+                    color: "white",
+                    icon: {
+                        color: "kodo.gold"
+                    }
+                },
+                error: {
+                    bg: "kodo.darkGray",
+                    color: "white",
+                    borderColor: "kodo.red",
+                    icon: {
+                        color: "kodo.red"
+                    }
+                },
+                warning: {
+                    bg: "kodo.darkGray",
+                    color: "white",
+                    borderColor: "orange.300",
+                    icon: {
+                        color: "orange.300"
+                    }
+                },
+                info: {
+                    bg: "kodo.darkGray",
+                    color: "white",
+                    borderColor: "blue.300",
+                    icon: {
+                        color: "blue.300"
+                    }
+                }
+            }
+        },
     }
 };
 

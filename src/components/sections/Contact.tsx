@@ -17,7 +17,7 @@ import {
     keyframes,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaCheckCircle, FaTimes } from "react-icons/fa";
 
 // Animación para los elementos decorativos
 const fadeIn = keyframes`
@@ -120,6 +120,33 @@ const Contact = () => {
                     status: "success",
                     duration: 5000,
                     isClosable: true,
+                    position: "bottom-right",
+                    render: ({ onClose }) => (
+                        <Box
+                            color="white"
+                            p={4}
+                            bg="kodo.darkGray"
+                            borderLeft="4px solid"
+                            borderColor="kodo.gold"
+                            borderRadius="md"
+                            display="flex"
+                            alignItems="center"
+                            boxShadow="lg"
+                        >
+                            <Icon as={FaCheckCircle} color="kodo.gold" mr={3} />
+                            <Box flex="1">
+                                <Text fontWeight="bold">Mensaje enviado.</Text>
+                                <Text fontSize="sm">Nos pondremos en contacto contigo pronto.</Text>
+                            </Box>
+                            <Icon
+                                as={FaTimes}
+                                cursor="pointer"
+                                onClick={onClose}
+                                color="gray.400"
+                                _hover={{ color: "white" }}
+                            />
+                        </Box>
+                    )
                 });
 
                 setFormData({
