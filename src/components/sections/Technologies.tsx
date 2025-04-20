@@ -180,7 +180,7 @@ const Technologies = () => {
                     </SimpleGrid>
 
                     <Heading as="h3" fontSize="xl" mb={8} color="kodo.gold">
-                        Desarrollo Android
+                        Desarrollo Movil
                     </Heading>
                     <SimpleGrid columns={columnCount} spacing={10} mb={16}>
                         <TechIcon icon={<Icon as={SiKotlin} color="kodo.gold" />} name="Kotlin" />
